@@ -1,0 +1,19 @@
+import requests
+from bs4 import BeautifulSoup
+r=requests.get("https://www.geeksforgeeks.org/how-to-scrape-websites-with-beautifulsoup-and-python/")
+
+print(r)
+
+#parsing the HTML
+soup=BeautifulSoup(r.content, 'html.parser')
+print(soup.prettify())
+
+s=soup.find('div', class_='entry-content')
+#los elementos p son el texto
+
+#
+leftbar=s.find('ul', class_='leftBarList')
+
+print(soup.title)
+print(soup.title.name)
+print(soup.title.parent.n)
